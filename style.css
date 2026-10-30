@@ -17,11 +17,13 @@
 }
 .logo {
   display: block;
-  width: clamp(110px, 30vw, 150px);
-  height: auto;
-  margin-bottom: 16px;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(59, 35, 32, 0.12);
+  width: 380px;
+  max-width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 45%;
+  margin-bottom: 1px;
+ 
 }
 
 *,
