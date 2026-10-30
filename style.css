@@ -1,0 +1,159 @@
+/* CookCode - tela de login
+   Fontes: Fraunces (títulos) e Figtree (textos), carregadas do Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Figtree:wght@400;500;600&display=swap");
+
+/* Cores e medidas do projeto: para mudar o visual, altere só aqui */
+:root {
+  --pistache: #e9f2e3;      /* fundo da página */
+  --chantilly: #ffffff;     /* fundo do cartão */
+  --chocolate: #3b2320;     /* texto principal */
+  --cacau-suave: #6b5550;   /* texto secundário */
+  --framboesa: #c0345b;     /* cor de destaque (botão) */
+  --framboesa-escura: #a32a4c;
+  --borda: #e3d5cf;
+
+  --fonte-titulo: "Fraunces", Georgia, "Times New Roman", serif;
+  --fonte-texto: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.logo {
+  display: block;
+  width: clamp(110px, 30vw, 150px);
+  height: auto;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(59, 35, 32, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--pistache);
+  color: var(--chocolate);
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Título e frase de boas-vindas */
+h1 {
+  margin: 0 0 8px;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--chocolate);
+}
+
+body > p {
+  margin: 0 0 28px;
+  max-width: 34ch;
+  text-align: center;
+  color: var(--cacau-suave);
+}
+
+/* Formulário em formato de cartão */
+form {
+  width: 100%;
+  max-width: 380px;
+  padding: 32px 28px;
+  background: var(--chantilly);
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(59, 35, 32, 0.08);
+}
+
+/* Os <br> do HTML criam espaços irregulares; o espaçamento agora vem do CSS */
+form br {
+  display: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--chocolate);
+}
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--chocolate);
+  background: var(--chantilly);
+  border: 1.5px solid var(--borda);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover {
+  border-color: var(--cacau-suave);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: var(--framboesa);
+  box-shadow: 0 0 0 4px rgba(192, 52, 91, 0.18);
+}
+
+/* Botão de login */
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px 20px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--framboesa);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+input[type="submit"]:hover {
+  background: var(--framboesa-escura);
+}
+
+input[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+input[type="submit"]:focus-visible {
+  outline: 3px solid var(--chocolate);
+  outline-offset: 3px;
+}
+
+/* Celulares pequenos: cartão mais compacto */
+@media (max-width: 480px) {
+  form {
+    padding: 24px 20px;
+  }
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
