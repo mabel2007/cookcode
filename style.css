@@ -25,13 +25,13 @@ body {
 }
 
 .logo {
-    width: 130px;
-    margin-bottom: 10px;
+    width: 300px;
+    margin-bottom: 0px;
 }
 
 h1 {
     color: var(--cacau);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 /* Cartão principal */
