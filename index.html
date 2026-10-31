@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,20 +7,69 @@
     <title>CookCode</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <img class="logo" src="logosemfundo.png" alt="Logo do CookCode">
+
+    <img class="logo" src="logosemfundo.png" alt="Logo CookCode">
+
     <h1>Bem-vindo</h1>
 
-    <form> 
-        <label for="username">Nome de usuário:</label>
-        <input type="text" id="username" name="username" required><br><br>
+    <div class="cartao">
 
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required><br><br>
+        <!-- Controle das abas -->
+        <input type="radio" name="aba" id="aba-login" checked>
+        <input type="radio" name="aba" id="aba-cadastro">
 
-        <input type="submit" value="Login">
+        <!-- Abas -->
+        <div class="abas">
+            <label for="aba-login">Login</label>
+            <label for="aba-cadastro">Cadastro</label>
+        </div>
 
-    </form>
+        <!-- Formulário de Login -->
+        <form id="form-login">
+
+            <h2>Entrar na sua conta</h2>
+
+            <label for="username">Nome de usuário:</label>
+            <input type="text" id="username" name="username"
+                   placeholder="Digite seu usuário" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password"
+                   placeholder="Digite sua senha" required>
+
+            <input type="submit" value="Entrar">
+
+        </form>
+
+        <!-- Formulário de Cadastro -->
+        <form id="form-cadastro">
+
+            <h2>Crie sua conta</h2>
+
+            <label for="cad-nome">Nome:</label>
+            <input type="text" id="cad-nome" name="nome"
+                   placeholder="Digite seu nome" required>
+
+            <label for="cad-email">E-mail:</label>
+            <input type="email" id="cad-email" name="email"
+                   placeholder="Digite seu e-mail" required>
+
+            <label for="cad-senha">Senha:</label>
+            <input type="password" id="cad-senha" name="senha"
+                   minlength="6" placeholder="Crie uma senha" required>
+
+            <label for="cad-confirmar">Confirmar senha:</label>
+            <input type="password" id="cad-confirmar"
+                   name="confirmar" minlength="6"
+                   placeholder="Confirme sua senha" required>
+
+            <input type="submit" value="Cadastrar">
+
+        </form>
+
+    </div>
 
 </body>
 </html>

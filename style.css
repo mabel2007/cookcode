@@ -1,161 +1,145 @@
-/* CookCode - tela de login
-   Fontes: Fraunces (títulos) e Figtree (textos), carregadas do Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Figtree:wght@400;500;600&display=swap");
 
-/* Cores e medidas do projeto: para mudar o visual, altere só aqui */
 :root {
-  --pistache: #e9f2e3;      /* fundo da página */
-  --chantilly: #ffffff;     /* fundo do cartão */
-  --chocolate: #3b2320;     /* texto principal */
-  --cacau-suave: #6b5550;   /* texto secundário */
-  --framboesa: #c0345b;     /* cor de destaque (botão) */
-  --framboesa-escura: #a32a4c;
-  --borda: #e3d5cf;
-
-  --fonte-titulo: "Fraunces", Georgia, "Times New Roman", serif;
-  --fonte-texto: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
-}
-.logo {
-  display: block;
-  width: 380px;
-  max-width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  object-position: center 45%;
-  margin-bottom: 1px;
- 
+    --chantilly: #fffaf5;
+    --borda: #eadbd0;
+    --cacau: #59382e;
+    --cacau-suave: #92766a;
+    --framboesa: #b83d65;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  padding: 24px 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(--pistache);
-  color: var(--chocolate);
-  font-family: var(--fonte-texto);
-  font-size: 1rem;
-  line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f8f1ea;
+    font-family: Arial, sans-serif;
+    padding: 20px;
 }
 
-/* Título e frase de boas-vindas */
+.logo {
+    width: 130px;
+    margin-bottom: 10px;
+}
+
 h1 {
-  margin: 0 0 8px;
-  font-family: var(--fonte-titulo);
-  font-size: clamp(2rem, 6vw, 2.75rem);
-  font-weight: 700;
-  line-height: 1.15;
-  text-align: center;
-  color: var(--chocolate);
+    color: var(--cacau);
+    margin-bottom: 25px;
 }
 
-body > p {
-  margin: 0 0 28px;
-  max-width: 34ch;
-  text-align: center;
-  color: var(--cacau-suave);
+/* Cartão principal */
+.cartao {
+    width: 100%;
+    max-width: 400px;
+    background: var(--chantilly);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(59, 35, 32, 0.08);
 }
 
-/* Formulário em formato de cartão */
-form {
-  width: 100%;
-  max-width: 380px;
-  padding: 32px 28px;
-  background: var(--chantilly);
-  border: 1px solid var(--borda);
-  border-radius: 20px;
-  box-shadow: 0 12px 32px rgba(59, 35, 32, 0.08);
+/* Esconde os botões de rádio */
+.cartao input[type="radio"] {
+    display: none;
 }
 
-/* Os <br> do HTML criam espaços irregulares; o espaçamento agora vem do CSS */
-form br {
-  display: none;
+/* Abas superiores */
+.abas {
+    display: flex;
+    border-bottom: 1px solid var(--borda);
 }
 
-label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--chocolate);
+.abas label {
+    flex: 1;
+    padding: 18px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--cacau-suave);
+    font-weight: bold;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
 }
 
-input[type="text"],
-input[type="password"] {
-  display: block;
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 12px 14px;
-  font-family: inherit;
-  font-size: 1rem;
-  color: var(--chocolate);
-  background: var(--chantilly);
-  border: 1.5px solid var(--borda);
-  border-radius: 12px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+/* Aba selecionada */
+#aba-login:checked ~ .abas label[for="aba-login"],
+#aba-cadastro:checked ~ .abas label[for="aba-cadastro"] {
+    color: var(--framboesa);
+    border-bottom: 3px solid var(--framboesa);
 }
 
-input[type="text"]:hover,
-input[type="password"]:hover {
-  border-color: var(--cacau-suave);
+/* Formulários */
+.cartao form {
+    display: none;
+    flex-direction: column;
+    padding: 30px;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
-  outline: none;
-  border-color: var(--framboesa);
-  box-shadow: 0 0 0 4px rgba(192, 52, 91, 0.18);
+.cartao h2 {
+    color: var(--cacau);
+    margin-bottom: 25px;
+    text-align: center;
 }
 
-/* Botão de login */
-input[type="submit"] {
-  display: block;
-  width: 100%;
-  margin-top: 8px;
-  padding: 13px 20px;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
-  background: var(--framboesa);
-  border: none;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+/* Campos */
+.cartao form label {
+    color: var(--cacau);
+    margin-bottom: 7px;
+    font-weight: bold;
 }
 
-input[type="submit"]:hover {
-  background: var(--framboesa-escura);
+.cartao form input:not([type="submit"]) {
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
 }
 
-input[type="submit"]:active {
-  transform: scale(0.98);
+.cartao form input:focus {
+    border-color: var(--framboesa);
 }
 
-input[type="submit"]:focus-visible {
-  outline: 3px solid var(--chocolate);
-  outline-offset: 3px;
+/* Botão */
+.cartao form input[type="submit"] {
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: var(--framboesa);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Celulares pequenos: cartão mais compacto */
+.cartao form input[type="submit"]:hover {
+    background: #96304f;
+}
+
+/* Alternância entre Login e Cadastro */
+#aba-login:checked ~ #form-login {
+    display: flex;
+}
+
+#aba-cadastro:checked ~ #form-cadastro {
+    display: flex;
+}
+
+/* Responsividade */
 @media (max-width: 480px) {
-  form {
-    padding: 24px 20px;
-  }
-}
+    .cartao form {
+        padding: 24px 20px;
+    }
 
-/* Respeita quem prefere menos movimento */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-  }
+    .logo {
+        width: 110px;
+    }
 }
