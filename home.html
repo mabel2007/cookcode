@@ -1,12 +1,87 @@
-</> html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fffaf4">
+  <title>CookCode</title>
+
+
+ 
 </head>
 <body>
-    
+<div class="page">
+  <header class="topbar">
+    <a class="brand" href="./home.html" aria-label="CookCode início">
+      <span class="brand-mark"><img src="shop.svg" alt=""></span>
+      <span class="brand-name">Cook<span>Code</span></span>
+    </a>
+    <div class="top-actions">
+      <span class="welcome">Bem Vindo(a), <strong id="nomeUsuario">chef</strong>!</span>
+      <button class="icon-button" id="perfilBtn" title="Minha conta" aria-label="Minha conta"> <img src="person-fill.svg"alt="">
+      </button>
+      <button class="icon-button" id="sair" title="Sair da conta" aria-label="Sair da conta"><img src="gear.svg" alt="Sair"></button>
+    </div>
+  </header>
+
+  <section class="hero-wrap">
+    <div class="hero" id="hero">
+      <div class="hero-content">
+        <span class="eyebrow"> COZINHE • EXPLORE • COMPARTILHE</span>
+        <h1>Bem-vindo ao<br>CookCode.</h1>
+        <p>Um mundo de sabores em um só lugar. Descubra receitas, conheça suas origens e encontre sua próxima inspiração na cozinha.</p>
+        <button class="hero-cta" id="explorarBtn">Explorar receitas <span>↓</span></button>
+      </div>
+    </div>
+  </section>
+
+  <main id="receitas">
+    <div class="section-heading">
+      <div>
+        <h2>Encontre sua próxima receita</h2>
+        <p>Pesquise por nome, ingrediente ou descubra sabores de outros países.</p>
+      </div>
+      <span class="count" id="recipeCount">30 receitas</span>
+    </div>
+
+    <section class="filters" aria-label="Filtros de receitas">
+      <label class="search-box">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="Buscar receita ou ingrediente..." autocomplete="off">
+      </label>
+      <label class="select-box">
+        <span>🌎</span>
+        <select id="countryFilter" aria-label="Filtrar por país">
+          <option value="">Todos os países</option>
+        </select>
+      </label>
+     <button class="favorites-filter" id="favoritesFilter">☆ Favoritos</button>
+    </section>
+
+    <section class="recipe-grid" id="recipeGrid" aria-live="polite"></section>
+  </main>
+
+  <footer>Feito com carinho para quem acredita que toda receita conta uma história. <strong>CookCode</strong> © 2026</footer>
+</div>
+
+<dialog id="recipeDialog">
+  <img class="modal-image" id="modalImage" alt="">
+  <div class="modal-content">
+    <div class="modal-top">
+      <div>
+        <span class="eyebrow" id="modalOrigin" style="color:#382822"></span>
+        <h2 id="modalTitle"></h2>
+      </div>
+      <button class="close-modal" id="closeModal" aria-label="Fechar">×</button>
+    </div>
+    <p id="modalDescrição"></p>
+    <h3>Ingredientes</h3>
+    <ul id="modalIngredientes"></ul>
+    <h3>Modo de preparo</h3>
+    <ol id="modalSteps"></ol>
+  </div>
+</dialog>
+
+
 </body>
 </html>
