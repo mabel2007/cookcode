@@ -31,7 +31,18 @@ body {
 
 h1 {
     color: var(--cacau);
+    font-size:20px;
     margin-bottom: 20px;
+}
+.h1a {
+    color: var(--cacau);
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.pA {
+ color: var(--cacau);  
+ font-size:20px;
+ font-family:sans-serif; 
 }
 
 /* Cartão principal */
@@ -120,6 +131,29 @@ h1 {
     transition: 0.3s;
 }
 
+.welcome {
+    color: var(--cacau-suave);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.welcome strong {
+    color: var(--framboesa);
+    font-weight: 700;
+} 
+
+
+.eyebrow {
+    display: inline-block;
+    color: var(--framboesa);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+
 .cartao form input[type="submit"]:hover {
     background: #96304f;
 }
@@ -132,6 +166,7 @@ h1 {
 #aba-cadastro:checked ~ #form-cadastro {
     display: flex;
 }
+
 
 /* Responsividade */
 @media (max-width: 480px) {
